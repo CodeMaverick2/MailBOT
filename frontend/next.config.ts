@@ -15,7 +15,8 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
-  output: "standalone",
+  // Standalone is for Docker/self-hosting only — not compatible with Vercel
+  ...(process.env.DOCKER_BUILD === "true" ? { output: "standalone" as const } : {}),
   turbopack: {
     root: __dirname,
   },

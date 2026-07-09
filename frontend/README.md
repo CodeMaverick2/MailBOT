@@ -60,10 +60,16 @@ docker run -p 3000:3000 \
 
 ### Option 3: Vercel
 
-1. Import the repo and set root directory to `frontend`
-2. Set `NEXT_PUBLIC_SITE_URL` to your production domain
-3. Optionally set `WAITLIST_WEBHOOK_URL` for form submissions
+**Important:** This repo has a backend at the root and the landing page in `frontend/`. In Vercel project settings, set **Root Directory** to `frontend`.
+
+1. Import the repo on Vercel
+2. **Settings → General → Root Directory → `frontend`**
+3. Set environment variables:
+   - `NEXT_PUBLIC_SITE_URL` = your production domain (e.g. `https://mailbot.io`)
+   - `WAITLIST_WEBHOOK_URL` (optional) = webhook for form submissions
 4. Deploy
+
+A root `vercel.json` is also included as a fallback if Root Directory cannot be changed.
 
 ## Waitlist API
 
